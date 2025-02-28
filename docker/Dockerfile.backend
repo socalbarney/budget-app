@@ -1,0 +1,17 @@
+FROM node:14
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies
+COPY ../backend/package.json ./
+RUN npm install
+
+# Copy backend source code
+COPY ../backend ./
+
+# Expose port for backend
+EXPOSE 5000
+
+# Start the server
+CMD ["npm", "start"]

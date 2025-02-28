@@ -1,0 +1,17 @@
+FROM node:14
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies
+COPY ../frontend/package.json ./
+RUN npm install
+
+# Copy frontend source code
+COPY ../frontend ./
+
+# Expose port for frontend
+EXPOSE 3000
+
+# Start the React app
+CMD ["npm", "start"]
